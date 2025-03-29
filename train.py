@@ -48,6 +48,8 @@ def train():
             step += 1
 
         save_checkpoint({"state_dict": model.state_dict(), "optimizer": optimizer.state_dict()}, filename="flickr8k_model.pth")
+        # Save the full model
+        torch.save(model, "flickr8k_model_full.pth")
 
 if __name__ == "__main__":
     train()
